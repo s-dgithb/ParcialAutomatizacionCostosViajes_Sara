@@ -6,10 +6,19 @@ using namespace std;
 
 int main()
 {
-	int viajesRealizados, distancia, costoPorKM, conductores;
+	int viajesRealizados, promDistancia, distancia, costoPorKM, conductores;
+	int costoTotal;
+	int mayorIngreso;
 	string nombreConductor[10];
 	cout << "Ingrese la cantidad de conductores (maximo 10): ";
 	cin >> conductores;
+
+	if (conductores > 10)
+	{
+		cout << "Error.";
+		return 0;
+	}
+
 	for (int i = 0; i < conductores; i++)
 	{
 		cout << "Ingrese el nombre del conductor: ";
@@ -17,10 +26,29 @@ int main()
 		cout << "--------------------------------------" << endl;
 		cout << "Ingrese el numero de viajes realizados (maximo 10): ",
 		cin >> viajesRealizados;
+
+		if (viajesRealizados > 10)
+		{
+			cout << "Error.";
+			return 0;
+		}
+
+		for (int v = 0; v < viajesRealizados; v++)
+		{
+			cout << "Ingrese el costo por KM: ";
+			cin >> costoPorKM;
+			mayorIngreso = costoPorKM;
+		}
+
 		cout << "--------------------------------------" << endl;
 		cout << "Distancia (en KM): ";
 		cin >> distancia;
 		cout << "--------------------------------------" << endl;
+
+		promDistancia = distancia / conductores;
+		cout << promDistancia;
+		
+		
 	}
 
 
@@ -30,5 +58,6 @@ int main()
 
 
 }
+
 
 
