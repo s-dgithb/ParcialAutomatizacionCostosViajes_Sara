@@ -6,10 +6,11 @@ using namespace std;
 
 int main()
 {
-	int viajesRealizados, promDistancia, distancia, costoPorKM, conductores;
+	int viajesRealizados, distancia, costoPorKM, conductores;
 	int costoTotal;
 	int mayorIngreso;
 	string nombreConductor[10];
+	int promDistancia[10];
 	cout << "Ingrese la cantidad de conductores (maximo 10): ";
 	cin >> conductores;
 
@@ -25,7 +26,7 @@ int main()
 		cin >> nombreConductor[i];
 		cout << "--------------------------------------" << endl;
 		cout << "Ingrese el numero de viajes realizados (maximo 10): ",
-		cin >> viajesRealizados;
+			cin >> viajesRealizados;
 
 		if (viajesRealizados > 10)
 		{
@@ -38,26 +39,19 @@ int main()
 			cout << "Ingrese el costo por KM: ";
 			cin >> costoPorKM;
 			mayorIngreso = costoPorKM;
+			for (int k = 0; k < viajesRealizados; k++)
+			{
+				cout << "Distancia (en KM): ";
+				cin >> distancia;
+				promDistancia[i] = distancia / viajesRealizados;
+			}
 		}
-
-		cout << "--------------------------------------" << endl;
-		cout << "Distancia (en KM): ";
-		cin >> distancia;
-		cout << "--------------------------------------" << endl;
-
-		promDistancia = distancia / conductores;
-		cout << promDistancia;
-		
-		
 	}
-
-
-}
-
-
-
+	cout << "--------------------------------------" << endl;
+	cout << "== RESUMEN ==" << endl;
 
 }
+
 
 
 
