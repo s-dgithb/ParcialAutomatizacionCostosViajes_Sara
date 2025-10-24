@@ -1,82 +1,91 @@
+// transLogicParcialSara.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
 #include <iostream>
 #include <limits>
 using namespace std;
 #include <string>
 
-int costoViajes(int costoTotal, int viajesRealizados, int distancia, int costoPorKM)
+int costoViajes(int viajesRealizados, int distancia[], int costoPorKM[])
 {
+	int costoTotal =0;
 	for (int i = 0; i < viajesRealizados; i++)
 	{
-		costoTotal = costoPorKM * distancia;
+		costoTotal = distancia[i] * costoPorKM[i];
 	}
 	return costoTotal;
 }
 
-int main()
+int promDist(int distancia[], int viajesRealizados)
 {
-	int conductores;
-	int costoPorKM[10];
-	int distancia[10];
-	int viajesRealizados[10];
-	int costoTotal[10];
-	int mayorIngreso[10];
-	string nombreConductor[10];
-	int promDistancia[10];
+	int suma = 0;
+	for (int d = 0; d < viajesRealizados; d++)
+	{
+		suma += distancia[d];
+	}
+	return suma / viajesRealizados;
+}
+int validarDato(int conductores)
+{
 
-	cout << "Ingrese la cantidad de conductores (maximo 10): ";
-	cin >> conductores;
-
-	if (conductores > 10)
+	if (conductores > 10 || conductores < 0)
 	{
 		cout << "Error.";
 		return 0;
 	}
-
-	/*for (int i = 0; i < conductores; i++)
-	{
-		cout << "Ingrese el nombre del conductor: ";
-		cin >> nombreConductor[i];
-		cout << "--------------------------------------" << endl;
-		cout << "Ingrese el numero de viajes realizados (maximo 10): ",
-			cin >> viajesRealizados[i];
-
-		if (viajesRealizados > 10)
-		{
-			cout << "Error.";
-			return 0;
-		}
-
-		for (int v = 0; v < viajesRealizados; v++)
-		{
-			cout << "Ingrese el costo por KM: ";
-			cin >> costoPorKM;
-			mayorIngreso = costoPorKM;
-			for (int k = 0; k < viajesRealizados; k++)
-			{
-				cout << "Distancia (en KM): ";
-				cin >> distancia;
-				promDistancia[i] = distancia / viajesRealizados;
-			}
-		}
-	}
-	cout << "--------------------------------------" << endl;
-	cout << "== RESUMEN ==" << endl;
-	for (int c = 0; c < conductores; c++)
-	{
-		for (int cost = 0; cost < viajesRealizados; cost++)
-		{
-			costoTotal = costoPorKM * distancia;
-		}
-		cout << nombreConductor[10] << endl;
-		cout << "Promedio de distancia: " << promDistancia << endl;
-		cout << "Costo por KM: " << costoPorKM << endl;
-		cout << "Distancia Recorrida: " << distancia << endl;
-		cout << "Ganancias: " << costoTotal << endl;
-	}
-	*/
-
 }
 
+int validarDato2(int viajesRealizados)
+{
+	if (viajesRealizados > 10 || viajesRealizados < 0)
+	{
+		cout << "Error.";
+		return 0;
+	}
+}
+int main()
+{
+	int conductores;
+	
+	int viajesRealizados;
+	
+	int mayorIngreso[10];
+	string nombreConductor[10];
+	int promDistancia[10];
+
+	cout << "Ingrese la cantidad de conductores (maximo 10): " << endl;
+	cin >> conductores;
+	validarDato(conductores);
+	for (int cond = 0; cond < conductores; cond++)
+	{
+		cout << "Ingrese el nombre del conductor: " << endl;
+		cin >> nombreConductor[cond];
+
+		int costoPorKM[10];
+		int distancia[10];
+		int costoTotal[10];
+		int promedioViajes;
+
+		cout << "Ingrese la cantidad de viajes: " << endl;
+		cin >> viajesRealizados;
+		for (int k = 0; k < viajesRealizados; k++)
+		{
+			cout << "Ingrese la distancia: " << endl;
+			cin >> distancia[k];
+			cout << "Ingrese el costo por KM: " << endl;
+			cin >> costoPorKM[k];
+		}
+		costoTotal[cond] = costoViajes(viajesRealizados, distancia, costoPorKM);
+		promedioViajes = promDist(distancia, viajesRealizados);
+		cout << "El promedio de los viajes es de: " << promedioViajes << endl;
+		cout << "El costo total de los viajes es de: " << costoTotal[cond] << endl;
+
+		int mayor = 0;
+		for (int n = 0; n < costoTotal; n++)
+		{
+			mayorIngreso[cond] = costoTotal[cond];
+			
+		}
+		
+	}
 
 
-
+}
