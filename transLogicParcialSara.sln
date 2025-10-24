@@ -1,16 +1,28 @@
-// transLogicParcialSara.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
 #include <iostream>
 #include <limits>
 using namespace std;
 #include <string>
 
+int costoViajes(int costoTotal, int viajesRealizados, int distancia, int costoPorKM)
+{
+	for (int i = 0; i < viajesRealizados; i++)
+	{
+		costoTotal = costoPorKM * distancia;
+	}
+	return costoTotal;
+}
+
 int main()
 {
-	int viajesRealizados, distancia, costoPorKM, conductores;
-	int costoTotal;
-	int mayorIngreso;
+	int conductores;
+	int costoPorKM[10];
+	int distancia[10];
+	int viajesRealizados[10];
+	int costoTotal[10];
+	int mayorIngreso[10];
 	string nombreConductor[10];
 	int promDistancia[10];
+
 	cout << "Ingrese la cantidad de conductores (maximo 10): ";
 	cin >> conductores;
 
@@ -20,13 +32,13 @@ int main()
 		return 0;
 	}
 
-	for (int i = 0; i < conductores; i++)
+	/*for (int i = 0; i < conductores; i++)
 	{
 		cout << "Ingrese el nombre del conductor: ";
 		cin >> nombreConductor[i];
 		cout << "--------------------------------------" << endl;
 		cout << "Ingrese el numero de viajes realizados (maximo 10): ",
-			cin >> viajesRealizados;
+			cin >> viajesRealizados[i];
 
 		if (viajesRealizados > 10)
 		{
@@ -49,6 +61,19 @@ int main()
 	}
 	cout << "--------------------------------------" << endl;
 	cout << "== RESUMEN ==" << endl;
+	for (int c = 0; c < conductores; c++)
+	{
+		for (int cost = 0; cost < viajesRealizados; cost++)
+		{
+			costoTotal = costoPorKM * distancia;
+		}
+		cout << nombreConductor[10] << endl;
+		cout << "Promedio de distancia: " << promDistancia << endl;
+		cout << "Costo por KM: " << costoPorKM << endl;
+		cout << "Distancia Recorrida: " << distancia << endl;
+		cout << "Ganancias: " << costoTotal << endl;
+	}
+	*/
 
 }
 
