@@ -88,12 +88,12 @@ int main()
 	int cond = 0;	
 	int mayor = 0;
 	int posicion = 0;
-	for (int n = 0; n < viajesRealizados; n++)
+	for (int n = 0; n < conductores; n++) // OJO: debe ser conductores, no viajesRealizados
 	{
-		if (costosConductor[n] > mayor)
-		{
-			mayor = costosConductor[n];
-			posicion = mayor;
-		}
+    	if (costosConductor[n] > mayor)
+    	{
+        mayor = costosConductor[n];
+        posicion = n; // <--- Este es el cambio importante
+    	}
 	}
 	cout << "El conductor con mayor ingreso es: " << nombreConductor[posicion] << " con un ingreso de: " << mayor << endl;
